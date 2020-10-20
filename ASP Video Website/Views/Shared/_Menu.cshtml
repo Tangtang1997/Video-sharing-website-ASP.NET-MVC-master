@@ -1,0 +1,21 @@
+﻿@using System.ComponentModel
+@using ASP_Video_Website.Services
+
+<li class="mt">
+    <span style="color: whitesmoke">CATEGORIES</span>
+</li>
+
+<li class="sub-menu">
+    <a href="@Url.Action("Index","Media")">
+        <span>All</span>
+    </a>
+</li>
+
+@foreach (var category in ServerParams.CategoriesList.List)
+{
+    <li class="sub-menu">
+        <a href="@Url.Action("Category","Media",new{id = category})">
+            <span>@category</span>
+        </a>
+    </li>
+}

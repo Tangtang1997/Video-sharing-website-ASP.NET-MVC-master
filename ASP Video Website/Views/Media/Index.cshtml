@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ASP_Video_Website.Models.MediaFile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3><i class="fa fa-angle-right"></i> Videos</h3>
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-4 col-sm-4 mb" style="width: 360px; height: 300px; margin-right: 10px;">
+                    <div class="content-panel pn" style="width: 360px; height: 300px;">
+                        <a href='@Url.Action("Display", new { id = item.Id })'>
+                            <img id="profile-01" style="width: 360px; height: 240px;" src="@Url.Action("MediaFile", "File", new {id = item.Id, filename = "thumbnail.jpg"}, Request.Url.Scheme)" alt='' />
+                        </a>
+@*
+                        <div id="profile-01" style="height: 240px; background: transparent url('@Url.Action("MediaFile", "File", new {id = item.Id, filename = "thumbnail.jpg"}, Request.Url.Scheme)') no-repeat scroll center;"></div>
+*@
+                        <div class="left" style="padding-left: 5px; ">
+                            <h4 style="margin-top: 2px;"><i class=""></i><br/>@item.Title</h4>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
